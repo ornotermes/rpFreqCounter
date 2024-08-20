@@ -10,8 +10,8 @@ def PIO_COUNTER():
     irq(7) # Raise IRQ 7
     wrap_target()
     label('loop')
-    wait(0,irq,7) # Wait for IRQ 7 to clear (by the timer)
     wait(0,pin,0) # Wait for pin to fall
+    wait(0,irq,7) # Wait for IRQ 7 to clear (by the timer)
     wait(1,pin,0) # Wait for pin to rise
     jmp(x_dec,'loop') # Decrease X and loop back
     wrap()
